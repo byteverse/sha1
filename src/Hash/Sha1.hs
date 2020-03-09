@@ -7,8 +7,8 @@ module Hash.Sha1
   ) where
 
 import Control.Monad.ST (ST)
-import Data.ByteArray.Builder.Bounded as BB
-import Data.ByteArray.Builder.Bounded.Unsafe as BBU
+import Data.Bytes.Builder.Bounded as BB
+import Data.Bytes.Builder.Bounded.Unsafe as BBU
 import Data.Bytes.Types (Bytes(Bytes))
 import Data.Primitive (ByteArray(..),MutableByteArray(..))
 import GHC.Exts (Int(I#),Int#,MutableByteArray#,ByteArray#)

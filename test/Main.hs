@@ -5,7 +5,7 @@ import Data.Word (Word8)
 import Numeric (showHex)
 
 import qualified Arithmetic.Nat as Nat
-import qualified Data.ByteArray.Builder.Bounded as BB
+import qualified Data.Bytes.Builder.Bounded as BB
 import qualified Data.Bytes as Bytes
 import qualified Data.Primitive as PM
 import qualified GHC.Exts as Exts

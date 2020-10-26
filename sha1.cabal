@@ -41,9 +41,9 @@ test-suite test
   type: exitcode-stdio-1.0
   build-depends:
     , base
-    , sha1
-    , natural-arithmetic >=0.1.1
-    , small-bytearray-builder
-    , primitive
+    , bytebuild >=0.3.4
     , byteslice >=0.1.4.0
+    , natural-arithmetic >=0.1.1
+    , primitive
+    , sha1
   ghc-options: -O2 -Wall

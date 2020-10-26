@@ -1,6 +1,6 @@
 cabal-version: 2.2
 name: sha1
-version: 0.1.0.2
+version: 0.1.0.3
 synopsis: SHA-1 Hash
 description:
   This library is a copy of cryptohash-sha1 that works on GC-managed

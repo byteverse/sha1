@@ -1,5 +1,9 @@
 # Revision history for sha1
 
+## 0.1.1.0 -- 2023-07-27
+
+* Add function for encoding to `ByteArrayN`.
+
 ## 0.1.0.2 -- 2020-03-09
 
 * Add proper attribution to license file.

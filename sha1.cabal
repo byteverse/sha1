@@ -28,7 +28,7 @@ library
   exposed-modules: Hash.Sha1
   build-depends:
     , base >=4.12 && <5
-    , primitive >=0.7 && <0.8
+    , primitive >=0.7 && <0.10
     , bytebuild >=0.3.4 && <0.4
     , byteslice >=0.2.11.1 && <0.3
     , run-st >=0.1.3

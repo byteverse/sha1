@@ -1,6 +1,6 @@
-{-# language DataKinds #-}
-{-# language MagicHash #-}
-{-# language UnliftedFFITypes #-}
+{-# LANGUAGE DataKinds #-}
+{-# LANGUAGE MagicHash #-}
+{-# LANGUAGE UnliftedFFITypes #-}
 
 module Hash.Sha1
   ( boundedBuilder
@@ -11,9 +11,9 @@ import Control.Monad.ST (ST)
 import Control.Monad.ST.Run (runByteArrayST)
 import Data.Bytes.Builder.Bounded as BB
 import Data.Bytes.Builder.Bounded.Unsafe as BBU
-import Data.Bytes.Types (Bytes(Bytes),ByteArrayN(ByteArrayN))
-import Data.Primitive (ByteArray(..),MutableByteArray(..))
-import GHC.Exts (Int(I#),Int#,MutableByteArray#,ByteArray#)
+import Data.Bytes.Types (ByteArrayN (ByteArrayN), Bytes (Bytes))
+import Data.Primitive (ByteArray (..), MutableByteArray (..))
+import GHC.Exts (ByteArray#, Int (I#), Int#, MutableByteArray#)
 import GHC.IO (unsafeIOToST)
 
 import qualified Data.Primitive as PM
@@ -27,14 +27,16 @@ performHash (MutableByteArray x) (I# a) (ByteArray y) (I# b) (I# c) =
 
 -- | Hash the byte sequence, returning the result as a builder.
 boundedBuilder :: Bytes -> BB.Builder 20
-boundedBuilder (Bytes arr off len) = BBU.construct
-  (\buf ix -> do
-    performHash buf ix arr off len
-    pure (ix + 20)
-  )
+boundedBuilder (Bytes arr off len) =
+  BBU.construct
+    ( \buf ix -> do
+        performHash buf ix arr off len
+        pure (ix + 20)
+    )
 
--- | Hash the byte sequence, returning the result as a byte array
--- known to have exactly 20 bytes.
+{- | Hash the byte sequence, returning the result as a byte array
+known to have exactly 20 bytes.
+-}
 byteArrayN :: Bytes -> ByteArrayN 20
 byteArrayN (Bytes arr off len) = ByteArrayN $ runByteArrayST $ do
   dst <- PM.newByteArray 20
